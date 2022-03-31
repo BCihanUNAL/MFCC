@@ -40,7 +40,6 @@ public:
                 int NumFilters,
                 int BinSize,
                 int NumCoeffs);
-    ~Mfcc();
     // Returns the first m MFCCs
     void getCoefficients(float* spectralData, float*mfccs);
 };

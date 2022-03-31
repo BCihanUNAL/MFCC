@@ -27,6 +27,7 @@
 
 #include "Mfcc.h"
 #include <math.h>
+#include <stdlib.h>
 #include <string.h>
 
 namespace std {
@@ -51,12 +52,12 @@ void Mfcc::init(int SamplingRate,
     numCoeffs = NumCoeffs;
     int i,l,k;
 
-    filterParams = new float*[numFilters];
+    filterParams = (float*)malloc(sizeof(float)*numFilters));
     for (l=0;l<numFilters;l++){
-        filterParams[l] = new float[binSize];
+        filterParams[l] = (float*)malloc(sizeof(float)*binSize));
     }
-    normFactors = new float[numCoeffs];
-    innerSum = new float[numFilters];
+    normFactors = (float*)malloc(sizeof(float)*numCoeffs));
+    innerSum = (float*)malloc(sizeof(float)*numFilters));
 
     // 0 <= m < L
     if(numCoeffs >= numFilters) {
@@ -76,21 +77,6 @@ void Mfcc::init(int SamplingRate,
     }
 
 
-}
-
-Mfcc::~Mfcc() {
-    if (filterParams != 0){
-        for (int l=0;l<numFilters;l++){
-            delete(filterParams[l]);
-        }
-        delete(filterParams);
-    }
-    if (normFactors != 0){
-        delete(normFactors);
-    }
-    if (innerSum != 0){
-        delete(innerSum);
-    }
 }
 
 // Returns the first m MFCCs
