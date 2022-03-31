@@ -31,7 +31,7 @@
 
 namespace std {
 
-Mfcc::Mfcc(void){
+Mfcc::Mfcc(){
     samplingRate = 0;
     numFilters = 0;
     binSize = 0;
@@ -78,7 +78,7 @@ void Mfcc::init(int SamplingRate,
 
 }
 
-Mfcc::~Mfcc(void) {
+Mfcc::~Mfcc() {
     if (filterParams != 0){
         for (int l=0;l<numFilters;l++){
             delete(filterParams[l]);

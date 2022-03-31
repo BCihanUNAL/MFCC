@@ -35,12 +35,12 @@ class Mfcc {
     // Compute the center frequency (fc) of the specified filter band (l)
     float _getCenterFrequency(int filterBand);
 public:
-    Mfcc(void);
+    Mfcc();
     void init(int SamplingRate,
                 int NumFilters,
                 int BinSize,
                 int NumCoeffs);
-    ~Mfcc(void);
+    ~Mfcc();
     // Returns the first m MFCCs
     void getCoefficients(float* spectralData, float*mfccs);
 };
