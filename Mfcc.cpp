@@ -52,12 +52,12 @@ void Mfcc::init(int SamplingRate,
     numCoeffs = NumCoeffs;
     int i,l,k;
 
-    filterParams = (float*)malloc(sizeof(float)*numFilters));
+    filterParams = (float**)malloc(sizeof(float*)*numFilters);
     for (l=0;l<numFilters;l++){
-        filterParams[l] = (float*)malloc(sizeof(float)*binSize));
+        filterParams[l] = (float*)malloc(sizeof(float)*binSize);
     }
-    normFactors = (float*)malloc(sizeof(float)*numCoeffs));
-    innerSum = (float*)malloc(sizeof(float)*numFilters));
+    normFactors = (float*)malloc(sizeof(float)*numCoeffs);
+    innerSum = (float*)malloc(sizeof(float)*numFilters);
 
     // 0 <= m < L
     if(numCoeffs >= numFilters) {
