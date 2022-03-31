@@ -27,8 +27,7 @@
 
 #include "Mfcc.h"
 #include <math.h>
-#include <cstring>
-#include <iostream>
+#include <string.h>
 
 namespace std {
 
